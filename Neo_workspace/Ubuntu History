@@ -1,0 +1,647 @@
+(base) neo@DESKTOP-N59P7EF:~$ echo $DISPLAY
+:0
+(base) neo@DESKTOP-N59P7EF:~$ ls -l /tmp/.X11-unix
+total 0
+srwxrwxrwx 1 neo neo 0 Jun 24 14:44 X0
+(base) neo@DESKTOP-N59P7EF:~$ xeyes &
+[1] 1114
+(base) neo@DESKTOP-N59P7EF:~$
+Command 'xeyes' not found, but can be installed with:
+
+sudo apt install x11-apps
+
+
+[1]+  Exit 127                xeyes
+(base) neo@DESKTOP-N59P7EF:~$ sudo apt install x11-apps
+[sudo] password for neo:
+Reading package lists... Done
+Building dependency tree
+Reading state information... Done
+The following NEW packages will be installed:
+  x11-apps
+0 upgraded, 1 newly installed, 0 to remove and 0 not upgraded.
+Need to get 657 kB of archives.
+After this operation, 2534 kB of additional disk space will be used.
+Get:1 http://archive.ubuntu.com/ubuntu focal/main amd64 x11-apps amd64 7.7+8 [657 kB]
+Fetched 657 kB in 2s (292 kB/s)
+Selecting previously unselected package x11-apps.
+(Reading database ... 62480 files and directories currently installed.)
+Preparing to unpack .../x11-apps_7.7+8_amd64.deb ...
+Unpacking x11-apps (7.7+8) ...
+Setting up x11-apps (7.7+8) ...
+Processing triggers for man-db (2.9.1-1) ...
+(base) neo@DESKTOP-N59P7EF:~$ xeyes &
+[1] 1391
+(base) neo@DESKTOP-N59P7EF:~$ vglrun glxgears
+X Error of failed request:  BadMatch (invalid parameter attributes)
+  Major opcode of failed request:  130 (MIT-SHM)
+  Minor opcode of failed request:  3 (X_ShmPutImage)
+  Serial number of failed request:  39
+  Current serial number in output stream:  40
+(base) neo@DESKTOP-N59P7EF:~$ export VGL_READBACK=1
+[1]+  Done                    xeyes
+(base) neo@DESKTOP-N59P7EF:~$ vglrun glxgears
+X Error of failed request:  BadMatch (invalid parameter attributes)
+  Major opcode of failed request:  130 (MIT-SHM)
+  Minor opcode of failed request:  3 (X_ShmPutImage)
+  Serial number of failed request:  39
+  Current serial number in output stream:  40
+(base) neo@DESKTOP-N59P7EF:~$ export VGL_USEXSHM=0
+(base) neo@DESKTOP-N59P7EF:~$ export VGL_READBACK=1
+(base) neo@DESKTOP-N59P7EF:~$ vglrun glxgears
+X Error of failed request:  BadMatch (invalid parameter attributes)
+  Major opcode of failed request:  130 (MIT-SHM)
+  Minor opcode of failed request:  3 (X_ShmPutImage)
+  Serial number of failed request:  39
+  Current serial number in output stream:  40
+(base) neo@DESKTOP-N59P7EF:~$ xeyes &
+[1] 2973
+(base) neo@DESKTOP-N59P7EF:~$ python test2.py
+python: can't open file '/home/neo/test2.py': [Errno 2] No such file or directory
+[1]+  Done                    xeyes
+(base) neo@DESKTOP-N59P7EF:~$ python workspace/test2.py
+Traceback (most recent call last):
+  File "/home/neo/workspace/test2.py", line 1, in <module>
+    import numpy as np
+ModuleNotFoundError: No module named 'numpy'
+(base) neo@DESKTOP-N59P7EF:~$ conda activate minestudio
+(minestudio) neo@DESKTOP-N59P7EF:~$ python workspace/test2.py
+Recording enabled, saving episodes to output
+Detecting missing simulator engine, do you want to download it from huggingface (Y/N)?
+Y
+Downloading simulator engine to /tmp/MineStudio
+engine.zip: 100%|██████████████████| 458M/458M [00:40<00:00, 11.2MB/s]
+INFO: Starting Minecraft process with device: cpu
+ERROR:minestudio.simulator.minerl.env.malmo.instance.eafc5f:[15:00:06] [Render thread/WARN]: ERROR : Couldn't load Narrator library : Unable to load library 'fliteWrapper': Can't obtain InputStream for linux-x86-64/libfliteWrapper.so
+ERROR:minestudio.simulator.minerl.env.malmo.instance.eafc5f:[15:00:07] [Realms Notification Availability checker #1/INFO]: Could not authorize you against Realms server: java.lang.RuntimeException: Failed to parse into SignedJWT: null
+ERROR:minestudio.simulator.minerl.env.malmo.instance.eafc5f:[15:00:07] [Worker-Main-9/ERROR]: Using missing texture, unable to load minecraft:optifine/ctm/default/empty.png : java.io.FileNotFoundException: minecraft:optifine/ctm/default/empty.png
+WARNING:minestudio.simulator.minerl.env.malmo.instance.eafc5f:[15:00:10] [Render thread/WARN]: [OptiFine] Missing CTM sprite: minecraft:optifine/ctm/default/empty
+WARNING:minestudio.simulator.minerl.env.malmo.instance.eafc5f:[15:00:13] [Render thread/WARN]: Ambiguity between arguments [teleport, destination] and [teleport, targets] with inputs: [Player, 0123, @e, dd12be42-52a9-4a91-a8a1-11c01849e498]
+WARNING:minestudio.simulator.minerl.env.malmo.instance.eafc5f:[15:00:13] [Render thread/WARN]: Ambiguity between arguments [teleport, location] and [teleport, destination] with inputs: [0.1 -0.5 .9, 0 0 0]
+WARNING:minestudio.simulator.minerl.env.malmo.instance.eafc5f:[15:00:13] [Render thread/WARN]: Ambiguity between arguments [teleport, location] and [teleport, targets] with inputs: [0.1 -0.5 .9, 0 0 0]
+WARNING:minestudio.simulator.minerl.env.malmo.instance.eafc5f:[15:00:13] [Render thread/WARN]: Ambiguity between arguments [teleport, targets] and [teleport, destination] with inputs: [Player, 0123, dd12be42-52a9-4a91-a8a1-11c01849e498]
+WARNING:minestudio.simulator.minerl.env.malmo.instance.eafc5f:[15:00:13] [Render thread/WARN]: Ambiguity between arguments [teleport, targets, location] and [teleport, targets, destination] with inputs: [0.1 -0.5 .9, 0 0 0]
+WARNING:minestudio.simulator.minerl.env.malmo.instance.eafc5f:[15:00:23] [Render thread/WARN]: Failed to load texture: minecraft:optifine/ctm/default/empty.png
+ERROR:minestudio.simulator.minerl.env.malmo.instance.eafc5f:java.io.FileNotFoundException: minecraft:optifine/ctm/default/empty.png
+SpeedTestCallback()
+SummonMobsCallback()
+MaskActionsCallback()
+RecordCallback()
+RewardsCallback()
+CommandsCallback(commands=['/give @p minecraft:iron_sword 1', '/give @p minecraft:diamond 64'])
+FastResetCallback()
+Dict('attack': Discrete(2), 'back': Discrete(2), 'camera': Box(-180.0, 180.0, (2,), float32), 'forward': Discrete(2), 'hotbar.1': Discrete(2), 'hotbar.2': Discrete(2), 'hotbar.3': Discrete(2), 'hotbar.4': Discrete(2), 'hotbar.5': Discrete(2), 'hotbar.6': Discrete(2), 'hotbar.7': Discrete(2), 'hotbar.8': Discrete(2), 'hotbar.9': Discrete(2), 'inventory': Discrete(2), 'jump': Discrete(2), 'left': Discrete(2), 'right': Discrete(2), 'sneak': Discrete(2), 'sprint': Discrete(2), 'use': Discrete(2))
+Speed Test Status:
+Average Time: 0.08
+Average FPS: 11.94
+Total Steps: 50
+
+Speed Test Status:
+Average Time: 0.08
+Average FPS: 12.19
+Total Steps: 100
+
+Episode 1 saved at output/episode_1.mp4
+(minestudio) neo@DESKTOP-N59P7EF:~$ xeyes &
+[1] 3197
+(minestudio) neo@DESKTOP-N59P7EF:~$ code .
+[1]+  Done                    xeyes
+(minestudio) neo@DESKTOP-N59P7EF:~$ python -m minestudio.simulator.entry
+/home/neo/miniconda3/envs/minestudio/lib/python3.10/runpy.py:126: RuntimeWarning: 'minestudio.simulator.entry' found in sys.modules after import of package 'minestudio.simulator', but prior to execution of 'minestudio.simulator.entry'; this may result in unpredictable behaviour
+  warn(RuntimeWarning(msg))
+INFO: Starting Minecraft process with device: cpu
+ERROR:minestudio.simulator.minerl.env.malmo.instance.88f3d6:[15:02:07] [Render thread/WARN]: ERROR : Couldn't load Narrator library : Unable to load library 'fliteWrapper': Can't obtain InputStream for linux-x86-64/libfliteWrapper.so
+ERROR:minestudio.simulator.minerl.env.malmo.instance.88f3d6:[15:02:08] [Realms Notification Availability checker #1/INFO]: Could not authorize you against Realms server: java.lang.RuntimeException: Failed to parse into SignedJWT: null
+ERROR:minestudio.simulator.minerl.env.malmo.instance.88f3d6:[15:02:09] [Worker-Main-13/ERROR]: Using missing texture, unable to load minecraft:optifine/ctm/default/empty.png : java.io.FileNotFoundException: minecraft:optifine/ctm/default/empty.png
+WARNING:minestudio.simulator.minerl.env.malmo.instance.88f3d6:[15:02:11] [Render thread/WARN]: [OptiFine] Missing CTM sprite: minecraft:optifine/ctm/default/empty
+WARNING:minestudio.simulator.minerl.env.malmo.instance.88f3d6:[15:02:14] [Render thread/WARN]: Ambiguity between arguments [teleport, destination] and [teleport, targets] with inputs: [Player, 0123, @e, dd12be42-52a9-4a91-a8a1-11c01849e498]
+WARNING:minestudio.simulator.minerl.env.malmo.instance.88f3d6:[15:02:14] [Render thread/WARN]: Ambiguity between arguments [teleport, location] and [teleport, destination] with inputs: [0.1 -0.5 .9, 0 0 0]
+WARNING:minestudio.simulator.minerl.env.malmo.instance.88f3d6:[15:02:14] [Render thread/WARN]: Ambiguity between arguments [teleport, location] and [teleport, targets] with inputs: [0.1 -0.5 .9, 0 0 0]
+WARNING:minestudio.simulator.minerl.env.malmo.instance.88f3d6:[15:02:14] [Render thread/WARN]: Ambiguity between arguments [teleport, targets] and [teleport, destination] with inputs: [Player, 0123, dd12be42-52a9-4a91-a8a1-11c01849e498]
+WARNING:minestudio.simulator.minerl.env.malmo.instance.88f3d6:[15:02:14] [Render thread/WARN]: Ambiguity between arguments [teleport, targets, location] and [teleport, targets, destination] with inputs: [0.1 -0.5 .9, 0 0 0]
+WARNING:minestudio.simulator.minerl.env.malmo.instance.88f3d6:[15:02:24] [Render thread/WARN]: Failed to load texture: minecraft:optifine/ctm/default/empty.png
+ERROR:minestudio.simulator.minerl.env.malmo.instance.88f3d6:java.io.FileNotFoundException: minecraft:optifine/ctm/default/empty.png
+SpeedTestCallback()
+Speed Test Status:
+Average Time: 0.04
+Average FPS: 26.98
+Total Steps: 50
+
+Speed Test Status:
+Average Time: 0.04
+Average FPS: 25.40
+Total Steps: 100
+
+(minestudio) neo@DESKTOP-N59P7EF:~$ LIBGL_ALWAYS_INDIRECT=1 glxgears
+Error: glXCreateContext failed
+(minestudio) neo@DESKTOP-N59P7EF:~$ unset VGL_USEXSHM VGL_READBACK LD_PRELOAD
+(minestudio) neo@DESKTOP-N59P7EF:~$ glxgears
+1203 frames in 5.0 seconds = 240.472 FPS
+1102 frames in 5.0 seconds = 220.343 FPS
+1082 frames in 5.0 seconds = 216.176 FPS
+1049 frames in 5.0 seconds = 209.740 FPS
+1050 frames in 5.0 seconds = 209.738 FPS
+1071 frames in 5.0 seconds = 214.052 FPS
+1047 frames in 5.0 seconds = 209.236 FPS
+1066 frames in 5.0 seconds = 213.185 FPS
+1058 frames in 5.0 seconds = 211.597 FPS
+1068 frames in 5.0 seconds = 213.496 FPS
+1067 frames in 5.0 seconds = 213.389 FPS
+1059 frames in 5.0 seconds = 211.739 FPS
+1055 frames in 5.0 seconds = 210.931 FPS
+1064 frames in 5.0 seconds = 212.694 FPS
+1054 frames in 5.0 seconds = 210.644 FPS
+1064 frames in 5.0 seconds = 212.787 FPS
+1050 frames in 5.0 seconds = 209.860 FPS
+1057 frames in 5.0 seconds = 211.198 FPS
+1050 frames in 5.0 seconds = 209.877 FPS
+1068 frames in 5.0 seconds = 213.552 FPS
+1080 frames in 5.0 seconds = 215.884 FPS
+1065 frames in 5.0 seconds = 212.881 FPS
+1066 frames in 5.0 seconds = 212.987 FPS
+1035 frames in 5.0 seconds = 206.937 FPS
+1104 frames in 5.0 seconds = 220.637 FPS
+1153 frames in 5.0 seconds = 230.458 FPS
+X connection to :0 broken (explicit kill or server shutdown).
+(minestudio) neo@DESKTOP-N59P7EF:~$ export MINESTUDIO_GPU_RENDER=1
+(minestudio) neo@DESKTOP-N59P7EF:~$ python -m minestudio.simulator.entry
+/home/neo/miniconda3/envs/minestudio/lib/python3.10/runpy.py:126: RuntimeWarning: 'minestudio.simulator.entry' found in sys.modules after import of package 'minestudio.simulator', but prior to execution of 'minestudio.simulator.entry'; this may result in unpredictable behaviour
+  warn(RuntimeWarning(msg))
+INFO: Starting Minecraft process with device: cpu
+ERROR:minestudio.simulator.minerl.env.malmo.instance.e95f78:[15:06:50] [Render thread/WARN]: ERROR : Couldn't load Narrator library : Unable to load library 'fliteWrapper': Can't obtain InputStream for linux-x86-64/libfliteWrapper.so
+ERROR:minestudio.simulator.minerl.env.malmo.instance.e95f78:[15:06:50] [Realms Notification Availability checker #1/INFO]: Could not authorize you against Realms server: java.lang.RuntimeException: Failed to parse into SignedJWT: null
+ERROR:minestudio.simulator.minerl.env.malmo.instance.e95f78:[15:06:51] [Worker-Main-11/ERROR]: Using missing texture, unable to load minecraft:optifine/ctm/default/empty.png : java.io.FileNotFoundException: minecraft:optifine/ctm/default/empty.png
+WARNING:minestudio.simulator.minerl.env.malmo.instance.e95f78:[15:06:54] [Render thread/WARN]: [OptiFine] Missing CTM sprite: minecraft:optifine/ctm/default/empty
+WARNING:minestudio.simulator.minerl.env.malmo.instance.e95f78:[15:06:57] [Render thread/WARN]: Ambiguity between arguments [teleport, destination] and [teleport, targets] with inputs: [Player, 0123, @e, dd12be42-52a9-4a91-a8a1-11c01849e498]
+WARNING:minestudio.simulator.minerl.env.malmo.instance.e95f78:[15:06:57] [Render thread/WARN]: Ambiguity between arguments [teleport, location] and [teleport, destination] with inputs: [0.1 -0.5 .9, 0 0 0]
+WARNING:minestudio.simulator.minerl.env.malmo.instance.e95f78:[15:06:57] [Render thread/WARN]: Ambiguity between arguments [teleport, location] and [teleport, targets] with inputs: [0.1 -0.5 .9, 0 0 0]
+WARNING:minestudio.simulator.minerl.env.malmo.instance.e95f78:[15:06:57] [Render thread/WARN]: Ambiguity between arguments [teleport, targets] and [teleport, destination] with inputs: [Player, 0123, dd12be42-52a9-4a91-a8a1-11c01849e498]
+WARNING:minestudio.simulator.minerl.env.malmo.instance.e95f78:[15:06:57] [Render thread/WARN]: Ambiguity between arguments [teleport, targets, location] and [teleport, targets, destination] with inputs: [0.1 -0.5 .9, 0 0 0]
+WARNING:minestudio.simulator.minerl.env.malmo.instance.e95f78:[15:07:07] [Render thread/WARN]: Failed to load texture: minecraft:optifine/ctm/default/empty.png
+ERROR:minestudio.simulator.minerl.env.malmo.instance.e95f78:java.io.FileNotFoundException: minecraft:optifine/ctm/default/empty.png
+SpeedTestCallback()
+Speed Test Status:
+Average Time: 0.04
+Average FPS: 26.16
+Total Steps: 50
+
+Speed Test Status:
+Average Time: 0.04
+Average FPS: 26.08
+Total Steps: 100
+
+(minestudio) neo@DESKTOP-N59P7EF:~$ python -m minestudio.simulator.entry
+/home/neo/miniconda3/envs/minestudio/lib/python3.10/runpy.py:126: RuntimeWarning: 'minestudio.simulator.entry' found in sys.modules after import of package 'minestudio.simulator', but prior to execution of 'minestudio.simulator.entry'; this may result in unpredictable behaviour
+  warn(RuntimeWarning(msg))
+INFO: Starting Minecraft process with device: cpu
+ERROR:minestudio.simulator.minerl.env.malmo.instance.272e5f:[15:07:35] [Render thread/WARN]: ERROR : Couldn't load Narrator library : Unable to load library 'fliteWrapper': Can't obtain InputStream for linux-x86-64/libfliteWrapper.so
+ERROR:minestudio.simulator.minerl.env.malmo.instance.272e5f:[15:07:37] [Worker-Main-10/ERROR]: Using missing texture, unable to load minecraft:optifine/ctm/default/empty.png : java.io.FileNotFoundException: minecraft:optifine/ctm/default/empty.png
+ERROR:minestudio.simulator.minerl.env.malmo.instance.272e5f:[15:07:37] [Realms Notification Availability checker #1/INFO]: Could not authorize you against Realms server: java.lang.RuntimeException: Failed to parse into SignedJWT: null
+WARNING:minestudio.simulator.minerl.env.malmo.instance.272e5f:[15:07:39] [Render thread/WARN]: [OptiFine] Missing CTM sprite: minecraft:optifine/ctm/default/empty
+WARNING:minestudio.simulator.minerl.env.malmo.instance.272e5f:[15:07:41] [Render thread/WARN]: Ambiguity between arguments [teleport, destination] and [teleport, targets] with inputs: [Player, 0123, @e, dd12be42-52a9-4a91-a8a1-11c01849e498]
+WARNING:minestudio.simulator.minerl.env.malmo.instance.272e5f:[15:07:41] [Render thread/WARN]: Ambiguity between arguments [teleport, location] and [teleport, destination] with inputs: [0.1 -0.5 .9, 0 0 0]
+WARNING:minestudio.simulator.minerl.env.malmo.instance.272e5f:[15:07:41] [Render thread/WARN]: Ambiguity between arguments [teleport, location] and [teleport, targets] with inputs: [0.1 -0.5 .9, 0 0 0]
+WARNING:minestudio.simulator.minerl.env.malmo.instance.272e5f:[15:07:41] [Render thread/WARN]: Ambiguity between arguments [teleport, targets] and [teleport, destination] with inputs: [Player, 0123, dd12be42-52a9-4a91-a8a1-11c01849e498]
+WARNING:minestudio.simulator.minerl.env.malmo.instance.272e5f:[15:07:41] [Render thread/WARN]: Ambiguity between arguments [teleport, targets, location] and [teleport, targets, destination] with inputs: [0.1 -0.5 .9, 0 0 0]
+ERROR:minestudio.simulator.minerl.env.malmo.instance.272e5f:[15:07:46] [EnvServerSocketHandler/INFO]: [STDERR]: java.io.IOException: Invalid MalmoEnv hello header length
+ERROR:minestudio.simulator.minerl.env.malmo.instance.272e5f:[15:07:46] [EnvServerSocketHandler/INFO]: [STDERR]:       at com.minerl.multiagent.env.EnvServer.checkHello(EnvServer.java:217)
+ERROR:minestudio.simulator.minerl.env.malmo.instance.272e5f:[15:07:46] [EnvServerSocketHandler/INFO]: [STDERR]:       at com.minerl.multiagent.env.EnvServer.access$000(EnvServer.java:56)
+ERROR:minestudio.simulator.minerl.env.malmo.instance.272e5f:[15:07:46] [EnvServerSocketHandler/INFO]: [STDERR]:       at com.minerl.multiagent.env.EnvServer$1.run(EnvServer.java:103)
+ERROR:minestudio.simulator.minerl.env.malmo.instance.272e5f:[15:07:46] [EnvServerSocketHandler/FATAL]: MalmoEnv socket error: java.io.IOException: Invalid MalmoEnv hello header length (can be on disconnect)
+ERROR:minestudio.simulator.minerl.env.malmo.instance.272e5f:[15:07:47] [EnvServerSocketHandler/INFO]: [STDERR]: java.io.IOException: Invalid MalmoEnv hello header length
+ERROR:minestudio.simulator.minerl.env.malmo.instance.272e5f:[15:07:47] [EnvServerSocketHandler/INFO]: [STDERR]:       at com.minerl.multiagent.env.EnvServer.checkHello(EnvServer.java:217)
+ERROR:minestudio.simulator.minerl.env.malmo.instance.272e5f:[15:07:47] [EnvServerSocketHandler/INFO]: [STDERR]:       at com.minerl.multiagent.env.EnvServer.access$000(EnvServer.java:56)
+ERROR:minestudio.simulator.minerl.env.malmo.instance.272e5f:[15:07:47] [EnvServerSocketHandler/INFO]: [STDERR]:       at com.minerl.multiagent.env.EnvServer$1.run(EnvServer.java:103)
+ERROR:minestudio.simulator.minerl.env.malmo.instance.272e5f:[15:07:47] [EnvServerSocketHandler/FATAL]: MalmoEnv socket error: java.io.IOException: Invalid MalmoEnv hello header length (can be on disconnect)
+ERROR:minestudio.simulator.minerl.env.malmo.instance.272e5f:[15:07:47] [EnvServerSocketHandler/INFO]: [STDERR]: java.io.IOException: Invalid MalmoEnv hello header length
+ERROR:minestudio.simulator.minerl.env.malmo.instance.272e5f:[15:07:47] [EnvServerSocketHandler/INFO]: [STDERR]:       at com.minerl.multiagent.env.EnvServer.checkHello(EnvServer.java:217)
+ERROR:minestudio.simulator.minerl.env.malmo.instance.272e5f:[15:07:47] [EnvServerSocketHandler/INFO]: [STDERR]:       at com.minerl.multiagent.env.EnvServer.access$000(EnvServer.java:56)
+ERROR:minestudio.simulator.minerl.env.malmo.instance.272e5f:[15:07:47] [EnvServerSocketHandler/INFO]: [STDERR]:       at com.minerl.multiagent.env.EnvServer$1.run(EnvServer.java:103)
+ERROR:minestudio.simulator.minerl.env.malmo.instance.272e5f:[15:07:47] [EnvServerSocketHandler/FATAL]: MalmoEnv socket error: java.io.IOException: Invalid MalmoEnv hello header length (can be on disconnect)
+ERROR:minestudio.simulator.minerl.env.malmo.instance.272e5f:[15:07:47] [EnvServerSocketHandler/INFO]: [STDERR]: java.io.IOException: Invalid MalmoEnv hello header length
+ERROR:minestudio.simulator.minerl.env.malmo.instance.272e5f:[15:07:47] [EnvServerSocketHandler/INFO]: [STDERR]:       at com.minerl.multiagent.env.EnvServer.checkHello(EnvServer.java:217)
+ERROR:minestudio.simulator.minerl.env.malmo.instance.272e5f:[15:07:47] [EnvServerSocketHandler/INFO]: [STDERR]:       at com.minerl.multiagent.env.EnvServer.access$000(EnvServer.java:56)
+ERROR:minestudio.simulator.minerl.env.malmo.instance.272e5f:[15:07:47] [EnvServerSocketHandler/INFO]: [STDERR]:       at com.minerl.multiagent.env.EnvServer$1.run(EnvServer.java:103)
+ERROR:minestudio.simulator.minerl.env.malmo.instance.272e5f:[15:07:47] [EnvServerSocketHandler/FATAL]: MalmoEnv socket error: java.io.IOException: Invalid MalmoEnv hello header length (can be on disconnect)
+ERROR:minestudio.simulator.minerl.env.malmo.instance.272e5f:[15:07:52] [EnvServerSocketHandler/INFO]: [STDERR]: java.io.IOException: Invalid MalmoEnv hello header length
+ERROR:minestudio.simulator.minerl.env.malmo.instance.272e5f:[15:07:52] [EnvServerSocketHandler/INFO]: [STDERR]:       at com.minerl.multiagent.env.EnvServer.checkHello(EnvServer.java:217)
+ERROR:minestudio.simulator.minerl.env.malmo.instance.272e5f:[15:07:52] [EnvServerSocketHandler/INFO]: [STDERR]:       at com.minerl.multiagent.env.EnvServer.access$000(EnvServer.java:56)
+ERROR:minestudio.simulator.minerl.env.malmo.instance.272e5f:[15:07:52] [EnvServerSocketHandler/INFO]: [STDERR]:       at com.minerl.multiagent.env.EnvServer$1.run(EnvServer.java:103)
+ERROR:minestudio.simulator.minerl.env.malmo.instance.272e5f:[15:07:52] [EnvServerSocketHandler/FATAL]: MalmoEnv socket error: java.io.IOException: Invalid MalmoEnv hello header length (can be on disconnect)
+WARNING:minestudio.simulator.minerl.env.malmo.instance.272e5f:[15:07:53] [Render thread/WARN]: Failed to load texture: minecraft:optifine/ctm/default/empty.png
+ERROR:minestudio.simulator.minerl.env.malmo.instance.272e5f:java.io.FileNotFoundException: minecraft:optifine/ctm/default/empty.png
+SpeedTestCallback()
+Speed Test Status:
+Average Time: 0.04
+Average FPS: 27.39
+Total Steps: 50
+
+Speed Test Status:
+Average Time: 0.04
+Average FPS: 25.47
+Total Steps: 100
+
+(minestudio) neo@DESKTOP-N59P7EF:~$ sudo add-apt-repository ppa:oibaf/graphics-drivers
+[sudo] password for neo:
+Sorry, try again.
+[sudo] password for neo:
+ 2025 UPDATE: mesa packages are now providing code of mesa 25.0 branch, no more from main branch. If you need mesa main consider using a different PPA (and remember to disable this PPA before to avoid conflicts).
+
+=============
+
+PLEASE READ: don't email me to report bugs, unless you are sure it's a packaging bug. Not only is email not a good tool for tracking bugs, it also excludes anybody else from tracking or working on the issue. Please read the section "Debugging and reporting problems" below.
+
+Also, please don't ask me to include non-free drivers, I won't do it.
+
+Patches and suggestions are welcomed.
+
+=============
+
+All Ubuntu architectures are supported.
+
+Supported Ubuntu versions:
+- 25.04 (plucky) <- supported
+- 24.04 (noble) <- supported
+
+For forum support see: http://goo.gl/qoUpWK
+
+=== Introduction ===
+This PPA provides updated free graphics drivers (from mesa). Updates packages provide:
+ * all driver packages are automagically built every day, when there are upstream changes
+ * Vulkan 1.4+ and OpenGL 4.6+ : http://mesamatrix.net
+ * gallium-nine support. Read the specific section below
+ * VDPAU and VAAPI Gallium3D accelerated video drivers (see below)
+ * mesa packages built with gcc LTO for smaller binary size (~10-15%) and improved performance
+
+As an added bonus I may include some updated open source games (backported from Debian or newer Ubuntu).
+
+=== Basic usage ===
+See "Adding this PPA to your system" later on, or just do:
+sudo add-apt-repository ppa:oibaf/graphics-drivers
+and update your Ubuntu with the package here.
+
+=== Using gallium-nine ===
+Gallium-nine lets you run DirectX 9 games in a faster way, avoiding the inefficient translation of D3D9 calls to OpenGL. For more info see https://wiki.ixit.cz/d3d9
+You need:
+ * enable this PPA (see previous paragraph)
+ * then follow the instructions to install wine from this PPA: https://launchpad.net/~commendsarnex/+archive/ubuntu/winedri3
+
+=== Using alternative drivers - Here be dragons ===
+* zink - OpenGL emulated on a Vulkan driver:
+  Set MESA_LOADER_DRIVER_OVERRIDE=zink
+* zink + lavapipe - OpenGL emulated on a software Vulkan driver:
+  Set VK_ICD_FILENAMES=/usr/share/vulkan/icd.d/lvp_icd.x86_64.json MESA_LOADER_DRIVER_OVERRIDE=zink
+* llvmpipe OpenGL software render:
+  Set MESA_LOADER_DRIVER_OVERRIDE=llvmpipe
+* Other options here: https://www.mesa3d.org/envvars.html
+
+=== Using accelerated video ===
+Supported VDPAU drivers: r300, r600, radeonsi, nouveau
+Supported VAAPI drivers: r600, radeonsi
+
+* First you need to install mesa-vdpau-drivers package:
+sudo apt install mesa-vdpau-drivers
+
+* Then to test the VDPAU driver with mpv use:
+$ mpv --hwdec=vdpau yourvideofile
+
+=== Upgrading to a newer Ubuntu ===
+It is *strongly* suggested to remove all packages from this PPA before updating to a newer Ubuntu release. See the section "Revert to original drivers" later on.
+Then, after the upgrade, you can add again this PPA.
+
+=== Debugging and reporting problems ===
+If you have some problem with the drivers try running the application from the command line and see if there are graphics related warnings. Also type dmesg to see if there are other related information here.
+
+If you get crashes install the relevant -dbg pacakges (libgl1-mesa-dri-dbg or libgl1-mesa-dri-experimental-dbg for 3D drivers and xserver-xorg-video-intel-dbg , xserver-xorg-video-nouveau-dbg or xserver-xorg-video-radeon-dbg for X drivers) and reproduce the crash with gdb. Example:
+$ gdb glxgears
+[...make your application crash and then get a backtrace with:]
+(gdb) bt
+
+If X.org crashes look at /var/log/Xorg.0.log (or /var/log/Xorg.0.log.old when a new X session is started after the crash).
+
+With the gathered information try searching at https://bugs.freedesktop.org/query.cgi (also try with google) if someone already reported a similar bug. If not you may want to report a new bug:
+for 3D drivers bugs: https://www.mesa3d.org/bugs.html
+for X / 2D driver bugs: https://bugs.freedesktop.org/enter_bug.cgi?product=xorg
+
+=== Revert to original drivers ===
+To revert to standard Ubuntu drivers type the following in a prompt shell:
+$ sudo apt install ppa-purge
+$ sudo ppa-purge ppa:oibaf/graphics-drivers
+
+=== Donations ===
+Some people asked me if I can accept donations to support this work. I don't, but if you have some spare money I would be happy if you could do a donation to a charity of your choice (for the poors, animals, whatever else you may think it might need it). Then feel free to send me a note about it!
+ More info: https://launchpad.net/~oibaf/+archive/ubuntu/graphics-drivers
+Press [ENTER] to continue or Ctrl-c to cancel adding it.
+
+
+
+
+Get:1 http://ppa.launchpad.net/oibaf/graphics-drivers/ubuntu focal InRelease [24.6 kB]
+Hit:2 http://security.ubuntu.com/ubuntu focal-security InRelease
+Hit:3 http://archive.ubuntu.com/ubuntu focal InRelease
+Get:4 http://archive.ubuntu.com/ubuntu focal-updates InRelease [128 kB]
+Hit:5 http://archive.ubuntu.com/ubuntu focal-backports InRelease
+Fetched 152 kB in 3s (53.9 kB/s)
+Reading package lists... Done
+(minestudio) neo@DESKTOP-N59P7EF:~$
+(minestudio) neo@DESKTOP-N59P7EF:~$
+(minestudio) neo@DESKTOP-N59P7EF:~$
+(minestudio) neo@DESKTOP-N59P7EF:~$ sudo apt update
+Hit:1 http://ppa.launchpad.net/oibaf/graphics-drivers/ubuntu focal InRelease
+Hit:2 http://security.ubuntu.com/ubuntu focal-security InRelease
+Hit:3 http://archive.ubuntu.com/ubuntu focal InRelease
+Hit:4 http://archive.ubuntu.com/ubuntu focal-updates InRelease
+Hit:5 http://archive.ubuntu.com/ubuntu focal-backports InRelease
+Reading package lists... Done
+Building dependency tree
+Reading state information... Done
+All packages are up to date.
+(minestudio) neo@DESKTOP-N59P7EF:~$ sudo apt upgrade -y
+Reading package lists... Done
+Building dependency tree
+Reading state information... Done
+Calculating upgrade... Done
+The following security updates require Ubuntu Pro with 'esm-infra' enabled:
+  xserver-common libblockdev-swap2 xserver-xorg-core libpython3.8-minimal
+  libsystemd0 libpython3.8 python3.8 xserver-xorg-legacy libblockdev-crypto2
+  udev libblockdev-loop2 libblockdev-fs2 libblockdev-part2 python3-requests
+  libudev1 systemd-timesyncd xserver-xephyr udisks2 python3.8-minimal
+  systemd-sysv libblockdev2 libpam-systemd xwayland systemd libblockdev-utils2
+  libnss-systemd libblockdev-part-err2 libpython3.8-stdlib libudisks2-0 xvfb
+Learn more about Ubuntu Pro at https://ubuntu.com/pro
+0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+(minestudio) neo@DESKTOP-N59P7EF:~$
+[處理結束，代碼為 1 (0x00000001)]
+您現在可以使用 Ctrl+D 關閉此終端機，或按 Enter 重新啟動。
+(base) neo@DESKTOP-N59P7EF:~$ conda activate minestudio
+(minestudio) neo@DESKTOP-N59P7EF:~$ glxgears
+1175 frames in 5.0 seconds = 234.908 FPS
+1106 frames in 5.0 seconds = 221.077 FPS
+1095 frames in 5.0 seconds = 218.910 FPS
+1102 frames in 5.0 seconds = 220.375 FPS
+X connection to :0 broken (explicit kill or server shutdown).
+(minestudio) neo@DESKTOP-N59P7EF:~$ MINESTUDIO_GPU_RENDER=1 python -m minestudio.simulator.entry
+/home/neo/miniconda3/envs/minestudio/lib/python3.10/runpy.py:126: RuntimeWarning: 'minestudio.simulator.entry' found in sys.modules after import of package 'minestudio.simulator', but prior to execution of 'minestudio.simulator.entry'; this may result in unpredictable behaviour
+  warn(RuntimeWarning(msg))
+Detecting missing simulator engine, do you want to download it from huggingface (Y/N)?
+Y
+Downloading simulator engine to /tmp/MineStudio
+engine.zip: 100%|██████████████████| 458M/458M [00:40<00:00, 11.3MB/s]
+INFO: Starting Minecraft process with device: cpu
+ERROR:minestudio.simulator.minerl.env.malmo.instance.eef544:[15:14:28] [Render thread/WARN]: ERROR : Couldn't load Narrator library : Unable to load library 'fliteWrapper': Can't obtain InputStream for linux-x86-64/libfliteWrapper.so
+ERROR:minestudio.simulator.minerl.env.malmo.instance.eef544:[15:14:29] [Realms Notification Availability checker #1/INFO]: Could not authorize you against Realms server: java.lang.RuntimeException: Failed to parse into SignedJWT: null
+ERROR:minestudio.simulator.minerl.env.malmo.instance.eef544:[15:14:30] [Worker-Main-10/ERROR]: Using missing texture, unable to load minecraft:optifine/ctm/default/empty.png : java.io.FileNotFoundException: minecraft:optifine/ctm/default/empty.png
+WARNING:minestudio.simulator.minerl.env.malmo.instance.eef544:[15:14:32] [Render thread/WARN]: [OptiFine] Missing CTM sprite: minecraft:optifine/ctm/default/empty
+WARNING:minestudio.simulator.minerl.env.malmo.instance.eef544:[15:14:35] [Render thread/WARN]: Ambiguity between arguments [teleport, destination] and [teleport, targets] with inputs: [Player, 0123, @e, dd12be42-52a9-4a91-a8a1-11c01849e498]
+WARNING:minestudio.simulator.minerl.env.malmo.instance.eef544:[15:14:35] [Render thread/WARN]: Ambiguity between arguments [teleport, location] and [teleport, destination] with inputs: [0.1 -0.5 .9, 0 0 0]
+WARNING:minestudio.simulator.minerl.env.malmo.instance.eef544:[15:14:35] [Render thread/WARN]: Ambiguity between arguments [teleport, location] and [teleport, targets] with inputs: [0.1 -0.5 .9, 0 0 0]
+WARNING:minestudio.simulator.minerl.env.malmo.instance.eef544:[15:14:35] [Render thread/WARN]: Ambiguity between arguments [teleport, targets] and [teleport, destination] with inputs: [Player, 0123, dd12be42-52a9-4a91-a8a1-11c01849e498]
+WARNING:minestudio.simulator.minerl.env.malmo.instance.eef544:[15:14:35] [Render thread/WARN]: Ambiguity between arguments [teleport, targets, location] and [teleport, targets, destination] with inputs: [0.1 -0.5 .9, 0 0 0]
+WARNING:minestudio.simulator.minerl.env.malmo.instance.eef544:[15:14:46] [Render thread/WARN]: Failed to load texture: minecraft:optifine/ctm/default/empty.png
+ERROR:minestudio.simulator.minerl.env.malmo.instance.eef544:java.io.FileNotFoundException: minecraft:optifine/ctm/default/empty.png
+SpeedTestCallback()
+Speed Test Status:
+Average Time: 0.04
+Average FPS: 27.04
+Total Steps: 50
+
+Speed Test Status:
+Average Time: 0.04
+Average FPS: 25.34
+Total Steps: 100
+
+(minestudio) neo@DESKTOP-N59P7EF:~$ code .
+(minestudio) neo@DESKTOP-N59P7EF:~$ python test2.py
+python: can't open file '/home/neo/test2.py': [Errno 2] No such file or directory
+(minestudio) neo@DESKTOP-N59P7EF:~$ workspace/python test2.py
+-bash: workspace/python: No such file or directory
+(minestudio) neo@DESKTOP-N59P7EF:~$ ls
+MineStudio
+Miniconda3-latest-Linux-x86_64.sh
+logs
+miniconda3
+output
+vgl_entrypoint.sh
+vgl_entrypoint.sh:Zone.Identifier
+virtualgl_3.1_amd64.deb
+virtualgl_3.1_amd64.deb:Zone.Identifier
+workspace
+(minestudio) neo@DESKTOP-N59P7EF:~$ python workspace/test2.py
+Recording enabled, saving episodes to output
+INFO: Starting Minecraft process with device: cpu
+ERROR:minestudio.simulator.minerl.env.malmo.instance.b04d5d:[15:17:59] [Render thread/WARN]: ERROR : Couldn't load Narrator library : Unable to load library 'fliteWrapper': Can't obtain InputStream for linux-x86-64/libfliteWrapper.so
+ERROR:minestudio.simulator.minerl.env.malmo.instance.b04d5d:[15:18:00] [Realms Notification Availability checker #1/INFO]: Could not authorize you against Realms server: java.lang.RuntimeException: Failed to parse into SignedJWT: null
+ERROR:minestudio.simulator.minerl.env.malmo.instance.b04d5d:[15:18:00] [Worker-Main-13/ERROR]: Using missing texture, unable to load minecraft:optifine/ctm/default/empty.png : java.io.FileNotFoundException: minecraft:optifine/ctm/default/empty.png
+WARNING:minestudio.simulator.minerl.env.malmo.instance.b04d5d:[15:18:03] [Render thread/WARN]: [OptiFine] Missing CTM sprite: minecraft:optifine/ctm/default/empty
+WARNING:minestudio.simulator.minerl.env.malmo.instance.b04d5d:[15:18:06] [Render thread/WARN]: Ambiguity between arguments [teleport, destination] and [teleport, targets] with inputs: [Player, 0123, @e, dd12be42-52a9-4a91-a8a1-11c01849e498]
+WARNING:minestudio.simulator.minerl.env.malmo.instance.b04d5d:[15:18:06] [Render thread/WARN]: Ambiguity between arguments [teleport, location] and [teleport, destination] with inputs: [0.1 -0.5 .9, 0 0 0]
+WARNING:minestudio.simulator.minerl.env.malmo.instance.b04d5d:[15:18:06] [Render thread/WARN]: Ambiguity between arguments [teleport, location] and [teleport, targets] with inputs: [0.1 -0.5 .9, 0 0 0]
+WARNING:minestudio.simulator.minerl.env.malmo.instance.b04d5d:[15:18:06] [Render thread/WARN]: Ambiguity between arguments [teleport, targets] and [teleport, destination] with inputs: [Player, 0123, dd12be42-52a9-4a91-a8a1-11c01849e498]
+WARNING:minestudio.simulator.minerl.env.malmo.instance.b04d5d:[15:18:06] [Render thread/WARN]: Ambiguity between arguments [teleport, targets, location] and [teleport, targets, destination] with inputs: [0.1 -0.5 .9, 0 0 0]
+WARNING:minestudio.simulator.minerl.env.malmo.instance.b04d5d:[15:18:16] [Render thread/WARN]: Failed to load texture: minecraft:optifine/ctm/default/empty.png
+ERROR:minestudio.simulator.minerl.env.malmo.instance.b04d5d:java.io.FileNotFoundException: minecraft:optifine/ctm/default/empty.png
+SpeedTestCallback()
+SummonMobsCallback()
+MaskActionsCallback()
+RecordCallback()
+RewardsCallback()
+CommandsCallback(commands=['/give @p minecraft:iron_sword 1', '/give @p minecraft:diamond 64'])
+FastResetCallback()
+Dict('attack': Discrete(2), 'back': Discrete(2), 'camera': Box(-180.0, 180.0, (2,), float32), 'forward': Discrete(2), 'hotbar.1': Discrete(2), 'hotbar.2': Discrete(2), 'hotbar.3': Discrete(2), 'hotbar.4': Discrete(2), 'hotbar.5': Discrete(2), 'hotbar.6': Discrete(2), 'hotbar.7': Discrete(2), 'hotbar.8': Discrete(2), 'hotbar.9': Discrete(2), 'inventory': Discrete(2), 'jump': Discrete(2), 'left': Discrete(2), 'right': Discrete(2), 'sneak': Discrete(2), 'sprint': Discrete(2), 'use': Discrete(2))
+Speed Test Status:
+Average Time: 0.08
+Average FPS: 12.25
+Total Steps: 50
+
+Speed Test Status:
+Average Time: 0.08
+Average FPS: 13.32
+Total Steps: 100
+
+Episode 1 saved at output/episode_1.mp4
+(minestudio) neo@DESKTOP-N59P7EF:~$ glxgears
+X connection to :0 broken (explicit kill or server shutdown).
+(minestudio) neo@DESKTOP-N59P7EF:~$ sudo add-apt-repository ppa:oibaf/graphics-drivers
+[sudo] password for neo:
+ 2025 UPDATE: mesa packages are now providing code of mesa 25.0 branch, no more from main branch. If you need mesa main consider using a different PPA (and remember to disable this PPA before to avoid conflicts).
+
+=============
+
+PLEASE READ: don't email me to report bugs, unless you are sure it's a packaging bug. Not only is email not a good tool for tracking bugs, it also excludes anybody else from tracking or working on the issue. Please read the section "Debugging and reporting problems" below.
+
+Also, please don't ask me to include non-free drivers, I won't do it.
+
+Patches and suggestions are welcomed.
+
+=============
+
+All Ubuntu architectures are supported.
+
+Supported Ubuntu versions:
+- 25.04 (plucky) <- supported
+- 24.04 (noble) <- supported
+
+For forum support see: http://goo.gl/qoUpWK
+
+=== Introduction ===
+This PPA provides updated free graphics drivers (from mesa). Updates packages provide:
+ * all driver packages are automagically built every day, when there are upstream changes
+ * Vulkan 1.4+ and OpenGL 4.6+ : http://mesamatrix.net
+ * gallium-nine support. Read the specific section below
+ * VDPAU and VAAPI Gallium3D accelerated video drivers (see below)
+ * mesa packages built with gcc LTO for smaller binary size (~10-15%) and improved performance
+
+As an added bonus I may include some updated open source games (backported from Debian or newer Ubuntu).
+
+=== Basic usage ===
+See "Adding this PPA to your system" later on, or just do:
+sudo add-apt-repository ppa:oibaf/graphics-drivers
+and update your Ubuntu with the package here.
+
+=== Using gallium-nine ===
+Gallium-nine lets you run DirectX 9 games in a faster way, avoiding the inefficient translation of D3D9 calls to OpenGL. For more info see https://wiki.ixit.cz/d3d9
+You need:
+ * enable this PPA (see previous paragraph)
+ * then follow the instructions to install wine from this PPA: https://launchpad.net/~commendsarnex/+archive/ubuntu/winedri3
+
+=== Using alternative drivers - Here be dragons ===
+* zink - OpenGL emulated on a Vulkan driver:
+  Set MESA_LOADER_DRIVER_OVERRIDE=zink
+* zink + lavapipe - OpenGL emulated on a software Vulkan driver:
+  Set VK_ICD_FILENAMES=/usr/share/vulkan/icd.d/lvp_icd.x86_64.json MESA_LOADER_DRIVER_OVERRIDE=zink
+* llvmpipe OpenGL software render:
+  Set MESA_LOADER_DRIVER_OVERRIDE=llvmpipe
+* Other options here: https://www.mesa3d.org/envvars.html
+
+=== Using accelerated video ===
+Supported VDPAU drivers: r300, r600, radeonsi, nouveau
+Supported VAAPI drivers: r600, radeonsi
+
+* First you need to install mesa-vdpau-drivers package:
+sudo apt install mesa-vdpau-drivers
+
+* Then to test the VDPAU driver with mpv use:
+$ mpv --hwdec=vdpau yourvideofile
+
+=== Upgrading to a newer Ubuntu ===
+It is *strongly* suggested to remove all packages from this PPA before updating to a newer Ubuntu release. See the section "Revert to original drivers" later on.
+Then, after the upgrade, you can add again this PPA.
+
+=== Debugging and reporting problems ===
+If you have some problem with the drivers try running the application from the command line and see if there are graphics related warnings. Also type dmesg to see if there are other related information here.
+
+If you get crashes install the relevant -dbg pacakges (libgl1-mesa-dri-dbg or libgl1-mesa-dri-experimental-dbg for 3D drivers and xserver-xorg-video-intel-dbg , xserver-xorg-video-nouveau-dbg or xserver-xorg-video-radeon-dbg for X drivers) and reproduce the crash with gdb. Example:
+$ gdb glxgears
+[...make your application crash and then get a backtrace with:]
+(gdb) bt
+
+If X.org crashes look at /var/log/Xorg.0.log (or /var/log/Xorg.0.log.old when a new X session is started after the crash).
+
+With the gathered information try searching at https://bugs.freedesktop.org/query.cgi (also try with google) if someone already reported a similar bug. If not you may want to report a new bug:
+for 3D drivers bugs: https://www.mesa3d.org/bugs.html
+for X / 2D driver bugs: https://bugs.freedesktop.org/enter_bug.cgi?product=xorg
+
+=== Revert to original drivers ===
+To revert to standard Ubuntu drivers type the following in a prompt shell:
+$ sudo apt install ppa-purge
+$ sudo ppa-purge ppa:oibaf/graphics-drivers
+
+=== Donations ===
+Some people asked me if I can accept donations to support this work. I don't, but if you have some spare money I would be happy if you could do a donation to a charity of your choice (for the poors, animals, whatever else you may think it might need it). Then feel free to send me a note about it!
+ More info: https://launchpad.net/~oibaf/+archive/ubuntu/graphics-drivers
+Press [ENTER] to continue or Ctrl-c to cancel adding it.
+
+
+
+
+
+
+
+
+Hit:1 http://archive.ubuntu.com/ubuntu focal InRelease
+Hit:2 http://archive.ubuntu.com/ubuntu focal-updates InRelease
+Hit:3 http://archive.ubuntu.com/ubuntu focal-backports InRelease
+Hit:4 http://security.ubuntu.com/ubuntu focal-security InRelease
+Hit:5 http://ppa.launchpad.net/oibaf/graphics-drivers/ubuntu focal InRelease
+Reading package lists... Done
+(minestudio) neo@DESKTOP-N59P7EF:~$
+(minestudio) neo@DESKTOP-N59P7EF:~$
+(minestudio) neo@DESKTOP-N59P7EF:~$
+(minestudio) neo@DESKTOP-N59P7EF:~$
+(minestudio) neo@DESKTOP-N59P7EF:~$
+(minestudio) neo@DESKTOP-N59P7EF:~$
+(minestudio) neo@DESKTOP-N59P7EF:~$
+(minestudio) neo@DESKTOP-N59P7EF:~$ glxgears
+1171 frames in 5.0 seconds = 234.051 FPS
+X connection to :0 broken (explicit kill or server shutdown).
+(minestudio) neo@DESKTOP-N59P7EF:~$ export MINESTUDIO_GPU_RENDER=1
+(minestudio) neo@DESKTOP-N59P7EF:~$ python -m minestudio.simulator.entry
+/home/neo/miniconda3/envs/minestudio/lib/python3.10/runpy.py:126: RuntimeWarning: 'minestudio.simulator.entry' found in sys.modules after import of package 'minestudio.simulator', but prior to execution of 'minestudio.simulator.entry'; this may result in unpredictable behaviour
+  warn(RuntimeWarning(msg))
+INFO: Starting Minecraft process with device: cpu
+ERROR:minestudio.simulator.minerl.env.malmo.instance.d9df73:[15:30:05] [Render thread/WARN]: ERROR : Couldn't load Narrator library : Unable to load library 'fliteWrapper': Can't obtain InputStream for linux-x86-64/libfliteWrapper.so
+ERROR:minestudio.simulator.minerl.env.malmo.instance.d9df73:[15:30:05] [Realms Notification Availability checker #1/INFO]: Could not authorize you against Realms server: java.lang.RuntimeException: Failed to parse into SignedJWT: null
+ERROR:minestudio.simulator.minerl.env.malmo.instance.d9df73:[15:30:06] [Worker-Main-14/ERROR]: Using missing texture, unable to load minecraft:optifine/ctm/default/empty.png : java.io.FileNotFoundException: minecraft:optifine/ctm/default/empty.png
+WARNING:minestudio.simulator.minerl.env.malmo.instance.d9df73:[15:30:09] [Render thread/WARN]: [OptiFine] Missing CTM sprite: minecraft:optifine/ctm/default/empty
+WARNING:minestudio.simulator.minerl.env.malmo.instance.d9df73:[15:30:12] [Render thread/WARN]: Ambiguity between arguments [teleport, destination] and [teleport, targets] with inputs: [Player, 0123, @e, dd12be42-52a9-4a91-a8a1-11c01849e498]
+WARNING:minestudio.simulator.minerl.env.malmo.instance.d9df73:[15:30:12] [Render thread/WARN]: Ambiguity between arguments [teleport, location] and [teleport, destination] with inputs: [0.1 -0.5 .9, 0 0 0]
+WARNING:minestudio.simulator.minerl.env.malmo.instance.d9df73:[15:30:12] [Render thread/WARN]: Ambiguity between arguments [teleport, location] and [teleport, targets] with inputs: [0.1 -0.5 .9, 0 0 0]
+WARNING:minestudio.simulator.minerl.env.malmo.instance.d9df73:[15:30:12] [Render thread/WARN]: Ambiguity between arguments [teleport, targets] and [teleport, destination] with inputs: [Player, 0123, dd12be42-52a9-4a91-a8a1-11c01849e498]
+WARNING:minestudio.simulator.minerl.env.malmo.instance.d9df73:[15:30:12] [Render thread/WARN]: Ambiguity between arguments [teleport, targets, location] and [teleport, targets, destination] with inputs: [0.1 -0.5 .9, 0 0 0]
+WARNING:minestudio.simulator.minerl.env.malmo.instance.d9df73:[15:30:23] [Render thread/WARN]: Failed to load texture: minecraft:optifine/ctm/default/empty.png
+ERROR:minestudio.simulator.minerl.env.malmo.instance.d9df73:java.io.FileNotFoundException: minecraft:optifine/ctm/default/empty.png
+SpeedTestCallback()
+Speed Test Status:
+Average Time: 0.04
+Average FPS: 23.25
+Total Steps: 50
+
+Speed Test Status:
+Average Time: 0.04
+Average FPS: 23.44
+Total Steps: 100
+
+(minestudio) neo@DESKTOP-N59P7EF:~$ history
+    1  conda activate minestudio
+    2  env | grep -i DISPLAY
+    3  sudo apt update
+    4  sudo apt install lightdm
+    5  sudo systemctl start lightdm
+    6  sudo /opt/VirtualGL/bin/vglserver_config
+    7  sudo service lightdm start
+    8  ls
+    9  chmod +x vgl_entrypoint.sh
+   10  bash ./vgl_entrypoint.sh
+   11  sudo mount -o remount,rw /tmp/.X11-unix
+   12  ./vgl_entrypoint.sh
+   13  sudo rm -f /tmp/.X11-unix/X0
+   14  sudo ln -s /mnt/wslg/.X11-unix/X0 /tmp/.X11-unix/X0
+   15  sudo chmod 1777 /tmp/.X11-unix
+   16  ./vgl_entrypoint.sh
+   17  sudo apt install -y xvfb mesa-utils libegl1-mesa libgl1-mesa-dev libglu1-mesa-dev
+   18  python -m minestudio.simulator.entry
+   19  MINESTUDIO_GPU_RENDER=1 python -m minestudio.simulator.entry
+   20  code .
+   21  ls
+   22  cd workspace/
+   23  python test.py
+   24  jps
+   25  kill 14066
+   26  kill 14099
+   27  python test.py
+   28  python test2.py
+   29* MINESTUDIO_GPU_RENDER=1 python test2.pyglxgears
+   30  conda activate minestudio
+   31  glxgears
+   32  MINESTUDIO_GPU_RENDER=1 python -m minestudio.simulator.entry
+   33  code .
+   34  python test2.py
+   35  workspace/python test2.py
+   36  ls
+   37  python workspace/test2.py
+   38  glxgears
+   39  sudo add-apt-repository ppa:oibaf/graphics-drivers
+   40  glxgears
+   41  export MINESTUDIO_GPU_RENDER=1
+   42  python -m minestudio.simulator.entry
+   43  history

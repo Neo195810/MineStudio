@@ -1,0 +1,33 @@
+Dear Dr. Shaofei Cai,
+
+My name is Yung Chen Chiang (江咏宸), and I am currently a master’s student at National Tsing Hua University, Taiwan. I am conducting research on embodied agents and have chosen MineStudio as the target environment.
+
+I have followed the MineStudio tutorial and installed it on Ubuntu 20.04.6 LTS, running under Windows WSL. However, I encountered an issue where no display window appears when I run any script. Despite this, I noticed that a recording file named episode_1.mp4 is generated in the output directory.
+
+I have attempted to resolve the issue using both Xvfb and VirtualGL(NVIDIA 3090Ti installed on my computer), but unfortunately, neither approach has worked. I have attached the relevant execution logs and summarization of logs below for your reference.
+
+I would be sincerely grateful if you could provide any guidance or suggestions to help me resolve this display problem.
+
+Thank you very much for your time and support.
+
+Warm regards,
+Yung Chen Chiang
+National Tsing Hua University, Taiwan
+
+
+
+
+Thank you for using MineStudio.
+You can directly add an issue in GitHub, and we will help you figure out this problem. 
+
+
+
+
+
+
+Original:
+From：Neo 江咏宸<neo195810@gmail.com>
+Date：2025-06-24 16:22:01(中国 (GMT+08:00))
+To：caishaofei@stu.pku.edu.cn<caishaofei@stu.pku.edu.cn>
+Cc：
+Subject：Request for Assistance with Display Issue in MineStudio (WSL + Ubuntu 20.04.6)
