@@ -5,22 +5,22 @@ online_dict = {
     "trainer_name": "PPOTrainer",
     "detach_rollout_manager": True,
     "rollout_config": {
-        "num_rollout_workers": 2,
-        "num_gpus_per_worker": 1.0,
+        "num_rollout_workers": 1,
+        "num_gpus_per_worker": 0.1,
         "num_cpus_per_worker": 1,
         "fragment_length": 256,
         "to_send_queue_size": 8,
         "worker_config": {
-            "num_envs": 16,
+            "num_envs": 4,
             "batch_size": 8,
             "restart_interval": 3600,  # 1h
             "video_fps": 20,
             "video_output_dir": "output/videos/gate_kl",
         },
         "replay_buffer_config": {
-            "max_chunks": 4800,
-            "max_reuse": 2,
-            "max_staleness": 2,
+            "max_chunks": 1200,
+            "max_reuse": 1,
+            "max_staleness": 1,
             "fragments_per_report": 40,
             "fragments_per_chunk": 1,
             "database_config": {
@@ -31,8 +31,8 @@ online_dict = {
         "episode_statistics_config": {},
     },
     "train_config": {
-        "num_workers": 2,
-        "num_gpus_per_worker": 1.0,
+        "num_workers": 1,
+        "num_gpus_per_worker": 0.8,
         "num_iterations": 4000,
         "vf_warmup": 0,
         "learning_rate": 0.00002,
@@ -58,7 +58,7 @@ online_dict = {
         "log_ratio_range": 50,  # for numerical stability
         "normalize_advantage_full_batch": True,  # TODO: check!!!
         "use_normalized_vf": True,
-        "num_readers": 4,
+        "num_readers": 2,
         "num_cpus_per_reader": 0.1,
         "prefetch_batches": 2,
         "save_interval": 10,
@@ -67,7 +67,7 @@ online_dict = {
         "enable_ref_update": False,
         "resume": None, #"/scratch/hekaichen/tmpdir/ray/session_2024-12-12_21-10-40_218613_2665801/artifacts/2024-12-12_21-10-58/TorchTrainer_2024-12-12_21-10-58/working_dirs/TorchTrainer_8758b_00000_0_2024-12-12_21-10-58/checkpoints/150",
         "resume_optimizer": True,
-        "save_path": "/scratch/hekaichen/workspace/MineStudio/minestudio/online/run/output/gate_kl"
+        "save_path": "./output/gate_kl"
     },
 
     "logger_config": {
@@ -92,6 +92,7 @@ def env_generator():
         obs_size=(128, 128), 
         preferred_spawn_biome="plains",
         callbacks=[
+            RecordCallback(record_path="./workspace/Minecraft-Agent/example/", fps=30, frame_type="pov"),
             MaskActionsCallback(inventory = 0), 
             GateRewardsCallback(),
             FastResetCallback(
@@ -111,8 +112,12 @@ def env_generator():
 
 def policy_generator():
     from minestudio.models import load_vpt_policy
+    
     policy = load_vpt_policy(
         model_path="/nfs-shared/jarvisbase/pretrained/foundation-model-2x.model",
         weights_path="/nfs-shared/jarvisbase/pretrained/foundation-model-2x.weights"
     ).to(get_compute_device())
+    
+    #add
+    #policy = VPTPolicy.from_pretrained("CraftJarvis/MineStudio_VPT.rl_from_early_game_2x").to("cuda")
     return policy
