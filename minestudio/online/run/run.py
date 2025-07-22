@@ -30,8 +30,8 @@ env_generator_1=env_generator
 def policy_generator():
     from minestudio.models import load_vpt_policy, VPTPolicy
     return load_vpt_policy(
-      model_path="/home/neo/workspace/Minecraft-Agent/example/2x.model",
-      weights_path="/home/neo/workspace/Minecraft-Agent/example/foundation-model-2x.weights"
+      model_path="C:/Users/Neo/Desktop/MineStudio&RL_GPT/vpt model+weights/example/2x.model",
+      weights_path="C:/Users/Neo/Desktop/MineStudio&RL_GPT/vpt model+weights/example/foundation-model-2x.weights"
   ).to(get_compute_device())
 
 
